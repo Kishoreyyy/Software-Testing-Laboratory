@@ -1,7 +1,7 @@
 # Ex.No: 2   Matrix Multiplication 
 
-### DATE:                                                                            
-### REGISTER NUMBER : 
+### DATE: 26/03/2025                                                                            
+### REGISTER NUMBER : 212222040078
 
 ### AIM: 
 Write a python program for matrix multiplication and inspect for failures.
@@ -16,6 +16,65 @@ Algorithm:
 5. Perform matrix multiplication and store the answer in result.
 6. Stop the program.
 ### Program:
+```
+# Taking row and column count for Matrix 1 and Matrix 2
+r1,c1 = input("Enter row and column count for matrix 1 (rows columns): ").split()
+r2,c2 = input("Enter row and column count for matrix 2 (rows columns): ").split()
+
+# Initialize matrices and result list
+matrix1 = []
+matrix2 = []
+result = []
+
+# Check if the input values are numeric
+if r1.isnumeric() and c1.isnumeric() and r2.isnumeric() and c2.isnumeric():
+    r1 = int(r1)
+    r2 = int(r2)
+    c1 = int(c1)
+    c2 = int(c2)
+
+    # Matrix multiplication condition check
+    if c1 != r2:
+        print("Matrix multiplication not possible (number of columns of matrix 1 must equal number of rows of matrix 2)")
+    elif (max(r1, c1, r2, c2) > 20 or min(r1, c1, r2, c2) == 0):
+        print("Matrix multiplication not possible (matrix dimensions must be between 1 and 20, and cannot be zero)")
+    else:
+        # Input elements for matrix 1
+        print("Enter the elements of matrix 1:")
+        for i in range(r1):
+            row = []
+            for j in range(c1):
+                row.append(int(input(f"Element at position ({i},{j}) for matrix 1: ")))
+            matrix1.append(row)
+
+        # Input elements for matrix 2
+        print("Enter the elements of matrix 2:")
+        for i in range(r2):
+            row = []
+            for j in range(c2):
+                row.append(int(input(f"Element at position ({i},{j}) for matrix 2: ")))
+            matrix2.append(row)
+
+        # Matrix multiplication logic
+        for i in range(r1):
+            inter = []
+            for j in range(c2):
+                sum = 0
+                for k in range(r2):
+                    sum += matrix1[i][k] * matrix2[k][j]
+                inter.append(sum)
+            result.append(inter)
+
+        # Printing the result matrix
+        print("Resultant matrix after multiplication:")
+        for i in range(r1):
+            for j in range(c2):
+                print(result[i][j], end=" ")
+            print()
+
+else:
+    print("Enter valid numbers for row and column counts.")
+```
 
 
 
@@ -30,6 +89,10 @@ Algorithm:
 
 
 ### Output:
+![Screenshot 2025-03-26 094127](https://github.com/user-attachments/assets/58754100-91b6-47fc-9bf4-3d21022392f6)
+![Screenshot 2025-03-26 094239](https://github.com/user-attachments/assets/ee18ea15-ea69-47bd-a6ba-f30bfbac9207)
+
+
 
 
 
